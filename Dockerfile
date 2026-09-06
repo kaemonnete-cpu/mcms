@@ -26,4 +26,7 @@ RUN chmod +x ${SCRIPT_DIR}/init.d/init_2_wait_for_db.sh && \
 # Switch back to the non-root payara user
 USER payara
 
+# Keep the JVM within the 512MB free-tier budget (Payara defaults to -Xmx512m + metaspace).
+ENV JVM_ARGS="-Xmx300m -XX:MaxMetaspaceSize=128m -Xss512k"
+
 EXPOSE 8080 4848

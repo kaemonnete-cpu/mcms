@@ -3,6 +3,7 @@ services:
     name: mcms
     runtime: docker
     plan: free
+    healthCheckPath: /mcms/
     envVars:
       - key: PGHOST
         fromDatabase:
