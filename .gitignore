@@ -1,0 +1,32 @@
+# Maven
+target/
+*.class
+*.jar
+*.war
+!src/**/*.jar
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+out/
+*.classpath
+*.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+*.env
+*.properties
+!src/main/resources/**/*.properties
+
+# Payara / local runtime
+*.pid
+*.prev

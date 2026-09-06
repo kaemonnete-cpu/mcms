@@ -1,0 +1,6 @@
+# Create the JDBC connection pool for PostgreSQL.
+# Uses Payara environment-variable replacement so Render settings drive the values.
+create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGSimpleDataSource --restype javax.sql.DataSource --property user=${ENV=PGUSER:mcms}:password=${ENV=PGPASSWORD:mcms}:DatabaseName=${ENV=PGDATABASE:mcms}:ServerName=${ENV=PGHOST:localhost}:PortNumber=${ENV=PGPORT:5432} mcmsPool
+
+# Create the JDBC resource (JNDI name used by persistence.xml).
+create-jdbc-resource --connectionpoolid mcmsPool jdbc/mcms

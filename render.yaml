@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: mcms
+    runtime: docker
+    plan: free
+    envVars:
+      - key: PGHOST
+        fromDatabase:
+          name: mcmsdb
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: mcmsdb
+          property: port
+      - key: PGDATABASE
+        fromDatabase:
+          name: mcmsdb
+          property: database
+      - key: PGUSER
+        fromDatabase:
+          name: mcmsdb
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: mcmsdb
+          property: password
+
+databases:
+  - name: mcmsdb
+    plan: free
+    databaseName: mcms
